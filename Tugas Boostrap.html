@@ -45,7 +45,7 @@
 
     <!-- jumbotron -->
     <section class="jumbotron text-center">
-      <img src="aqil.jpg" alt="Aqil Muhammad Faqih" width="200" class="rounded-circle img-thumbnail" />
+      <img src="photo.jpg" alt="Aqil Muhammad Faqih" width="200" class="rounded-circle img-thumbnail" />
       <h1 class="display-4">Aqil Muhammad Faqih</h1>
       <p class="lead">semur tahu photograph</p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -92,7 +92,7 @@
         <div class="row justify-content-center">
           <div class="col-md-4 mb-3">
             <div class="card">
-              <img src="photo.jpg" class="card-img-top" alt="dewa" />
+              <img src="aqil.jpg" class="card-img-top" alt="dewa" />
               <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
@@ -135,18 +135,18 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <form>
+              <form name="wpu-contact-form">
                 <div class="mb-3">
                   <label for="name" class="form-label">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="name" aria-describedby="name">
+                  <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="email">
+                  <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
                 </div>
                 <div class="mb-3">
                   <label for="pesan" class="form-label">pesan</label>
-                  <textarea class="form-control" id="pesan" rows="3"></textarea>
+                  <textarea class="form-control" id="pesan" rows="3"name="pesan"></textarea>
                 </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -169,5 +169,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <!-- akhir ikon -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+ <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbz-vmYikpSoLPNa1NdEbK7QLEosIKBh8lfjkdVYCOe6DVLxyV1YevqesCJuox3S4fP6/exec'
+      const form = document.forms['wpu-contact-form']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
