@@ -135,6 +135,10 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
+              <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+               <strong>Terimakasih</strong> Pesan anda sudah kami terima.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
               <form name="wpu-contact-form">
                 <div class="mb-3">
                   <label for="name" class="form-label">Nama Lengkap</label>
@@ -149,7 +153,12 @@
                   <textarea class="form-control" id="pesan" rows="3"name="pesan"></textarea>
                 </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary btn-kirim">Submit</button>
+
+                <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                  <span role="status">Loading...</span>
+                </button>
               </form>
             </div>
           </div>
@@ -173,11 +182,24 @@
  <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbz-vmYikpSoLPNa1NdEbK7QLEosIKBh8lfjkdVYCOe6DVLxyV1YevqesCJuox3S4fP6/exec'
       const form = document.forms['wpu-contact-form']
-    
+      const btnkirim = document.querySelector('.btn-kirim');
+      const btnLoading = document.querySelector('.btn-loading');
+      cont my-Alert = document.querySelector('.my-alert');
+
       form.addEventListener('submit', e => {
         e.preventDefault()
+        // ketika tombol submit diklik
+        // tampilkan tombol loading,hilangkan tombol kirim
+        btn.loading.classList.toggle('d-none');
+        btn.Kirim.classList.toggle('d-none');
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => console.log('Success!', response))
+          .then(response => {
+             // tampilkan tombol kirim,hilangkan tombol loading
+        const btnkirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        cont my-Alert = document.querySelector('.my-alert');
+            console.log('Success!', response)
+          })
           .catch(error => console.error('Error!', error.message))
       })
     </script>
