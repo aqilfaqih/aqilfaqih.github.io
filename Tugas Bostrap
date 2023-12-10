@@ -135,7 +135,7 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <form name="WPU-Contact-form">
+              <form name="WPU-contact-form">
                 <div class="alert alert-primary d-none" role="alert">Terimakasih Sudah Kirim pesan</div>
                 <div class="mb-3">
                   <label for="name" class="form-label">Nama Lengkap</label>
@@ -173,7 +173,7 @@
   
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzRAD-p84wRf0S_rVwGlR1ik3Vf3wKOcxrB6byQoI4YAkScv4TlUZf4HGYEktwuvxBUGg/exec'
-      const form = document.forms['WPU-Contact-form']
+      const form = document.forms['WPU-contact-form']
     
       form.addEventListener('submit', e => {
         e.preventDefault()
