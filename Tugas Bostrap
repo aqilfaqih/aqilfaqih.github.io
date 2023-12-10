@@ -135,15 +135,15 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <form name="contact-form">
+              <form name="WPU-Contact-form">
                 <div class="alert alert-primary d-none" role="alert">Terimakasih Sudah Kirim pesan</div>
                 <div class="mb-3">
                   <label for="name" class="form-label">Nama Lengkap</label>
-                  <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
+                  <input type="text" class="form-control" id="name" aria-describedby="name" name="nama"/>
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
+                  <input type="email" class="form-control" id="email" aria-describedby="email" name="email"/>
                 </div>
                 <div class="mb-3">
                   <label for="pesan" class="form-label">pesan</label>
@@ -173,7 +173,7 @@
   
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbzRAD-p84wRf0S_rVwGlR1ik3Vf3wKOcxrB6byQoI4YAkScv4TlUZf4HGYEktwuvxBUGg/exec'
-      const form = document.forms['contact-form']
+      const form = document.forms['WPU-Contact-form']
     
       form.addEventListener('submit', e => {
         e.preventDefault()
@@ -182,6 +182,17 @@
           .catch(error => console.error('Error!', error.message))
       })
     </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxys0lrw6QMmvmikD_QD3wfEWtpWavRTK4Z7FVYLZ74d7ls1cjcPKYFo5kG2kUbgADE/exec';
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
   
   </body>
 </html>
