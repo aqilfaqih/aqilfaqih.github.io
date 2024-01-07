@@ -135,6 +135,11 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
+              <div class="alert alert-succes-dismissible fade show" 
+              role="alert">
+              <strong>Teimakasih!</strong> Pesan anda sudah kami terima.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
               <form name='WPU-Contact-Form'>
                 <div class="alert alert-primary d-none" role="alert">Terimakasih Sudah Kirim pesan</div>
                 <div class="mb-3">
@@ -150,8 +155,10 @@
                   <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
                 </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button class="btn btn-primary" type="button" disabled>
+                <button type="submit" class="btn btn-primary btn-kirim">Submit</button>
+
+                <button class="btn btn-primary btn-loading d-none" 
+                type="button" disabled>
                   <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
                   <span role="status">Loading...</span>
                 </button>
